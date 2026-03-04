@@ -5,6 +5,7 @@ find_package(SDL2 REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(GLEW REQUIRED)
 
-add_executable(core src/main.c src/display.c src/shader.c src/mesh.c)
+add_executable(core src/main.c src/display.c src/shader.c src/mesh.c
+	src/renderer.c)
 
 target_link_libraries(core PUBLIC SDL2::SDL2 OpenGL::GL GLEW::GLEW)
