@@ -3,18 +3,20 @@
 
 GLuint idVAO;		// tablic wierzcholkow
 GLuint idVBO_coord; // bufora na wspolrzedne
+GLuint idVBO_color; // bufora na kolor
 
 // ---------------------------------------
 // Wspolrzedne wierzchokow
-GLfloat triangles[2*3*2] =
-{
-	-0.8f, -0.8f,
-	 0.0f, -0.8f,
-	0.4f,  0.5f,
+GLfloat triangles[1*3*2] = {
+	-0.25f, -0.42f,
+	 0.25f, -0.42f,
+	0.0f,  0.5f,
+};
 
-	 0.0f,  0.0f,
-	 0.8f,  0.0f,
-	 0.4f,  0.8f
+GLfloat colors[1*3*3] = {
+	1.0f, 0.0f, 0.0f,
+	0.0f, 1.0f, 0.0f,
+	0.0f, 0.0f, 1.0f,
 };
 
 int main() {
@@ -37,6 +39,14 @@ int main() {
 	glVertexAttribPointer( 0, 2, GL_FLOAT, GL_FALSE, 0, NULL );
 	glEnableVertexAttribArray( 0 );
 
+	// Bufor na kolor
+	glGenBuffers( 1, &idVBO_color );
+	glBindBuffer( GL_ARRAY_BUFFER, idVBO_color );
+	glBufferData( GL_ARRAY_BUFFER, sizeof( colors ), colors, GL_STATIC_DRAW );
+
+	glVertexAttribPointer( 1, 3, GL_FLOAT, GL_FALSE, 0, NULL );
+	glEnableVertexAttribArray( 1 );
+
 	glBindVertexArray( 0 );
 
 glViewport( 0, 0, display.width, display.height );
@@ -56,7 +66,7 @@ glViewport( 0, 0, display.width, display.height );
 
 		// Generowanie obiektow na ekranie
 		glBindVertexArray( idVAO );
-		glDrawArrays( GL_TRIANGLES, 0, 2*3 );
+		glDrawArrays( GL_TRIANGLES, 0, 1*3 );
 		glBindVertexArray( 0 );
 
 
