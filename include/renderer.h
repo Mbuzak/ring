@@ -14,7 +14,7 @@ typedef struct {
 	Mesh mesh;
 } Renderer;
 
-int renderer_init(Renderer*);
+int renderer_init(Renderer*, Mesh*);
 void renderer_destroy(Renderer*);
 void renderer_render(Renderer*, SDL_Window*);
 

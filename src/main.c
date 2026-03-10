@@ -1,12 +1,27 @@
 #include "display.h"
 #include "renderer.h"
+#include "mesh.h"
 
 int main() {
 	int quit = 0;
 	Display display = display_init(1280, 720, "01-core");
-
 	Renderer renderer;
-	renderer_init(&renderer);
+	Mesh mesh;
+
+	GLfloat triangles[3 * 2] = {
+		-0.25f, -0.42f,
+		 0.25f, -0.42f,
+		0.0f,  0.5f,
+	};
+
+	GLfloat colors[3 * 3] = {
+		1.0f, 0.0f, 0.0f,
+		0.0f, 1.0f, 0.0f,
+		0.0f, 0.0f, 1.0f,
+	};
+
+	mesh_init(&mesh, triangles, colors, 3);
+	renderer_init(&renderer, &mesh);
 
 	while (!quit) {
 		SDL_Event event;

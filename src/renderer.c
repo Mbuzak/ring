@@ -1,20 +1,8 @@
 #include "renderer.h"
 
-int renderer_init(Renderer* renderer) {
-	GLfloat triangles[3 * 2] = {
-		-0.25f, -0.42f,
-		 0.25f, -0.42f,
-		0.0f,  0.5f,
-	};
-
-	GLfloat colors[3 * 3] = {
-		1.0f, 0.0f, 0.0f,
-		0.0f, 1.0f, 0.0f,
-		0.0f, 0.0f, 1.0f,
-	};
-
+int renderer_init(Renderer* renderer, Mesh* mesh) {
 	renderer->program_id = program_init("default");
-	mesh_init(&renderer->mesh, triangles, colors, 3);
+	renderer->mesh = *mesh;
 }
 
 void renderer_destroy(Renderer* renderer) {
