@@ -9,4 +9,4 @@ add_executable(core src/main.c src/display.c src/shader.c src/mesh.c
 	src/renderer.c)
 
 target_include_directories(core PRIVATE "include/")
-target_link_libraries(core PUBLIC SDL2::SDL2 OpenGL::GL GLEW::GLEW)
+target_link_libraries(core PUBLIC SDL2::SDL2 OpenGL::GL GLEW::GLEW m)

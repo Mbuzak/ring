@@ -32,6 +32,7 @@ int main() {
 		}
 
 		renderer_render(&renderer, display.window);
+		renderer.alpha += 0.01f;
 	}
 
 	renderer_destroy(&renderer);

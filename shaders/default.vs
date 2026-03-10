@@ -5,8 +5,10 @@ in vec3 inColor;
 
 out vec3 color;
 
+uniform mat4 model;
+
 void main() {
-	gl_Position = inPosition;
+	gl_Position = model * inPosition;
 	color = inColor;
 }
 

@@ -1,6 +1,7 @@
 #ifndef RING_RENDERER
 #define RING_RENDERER
 
+#include <math.h>
 #include <SDL2/SDL.h>
 #include "shader.h"
 #include "mesh.h"
@@ -12,6 +13,7 @@
 typedef struct {
 	GLuint program_id;
 	Mesh mesh;
+	float alpha;
 } Renderer;
 
 int renderer_init(Renderer*, Mesh*);
