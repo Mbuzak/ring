@@ -14,6 +14,7 @@ typedef struct {
 	GLuint program_id;
 	Mesh mesh;
 	float alpha;
+	float x, y, z;
 } Renderer;
 
 int renderer_init(Renderer*, Mesh*);

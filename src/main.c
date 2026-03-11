@@ -29,6 +29,14 @@ int main() {
 			if (event.type == SDL_QUIT) {
 				quit = 1;
 			}
+			if (event.type == SDL_KEYDOWN) {
+				if (event.key.keysym.sym == SDLK_a) {
+					renderer.y += 0.1f;
+				}
+				if (event.key.keysym.sym == SDLK_d) {
+					renderer.y -= 0.1f;
+				}
+			}
 		}
 
 		renderer_render(&renderer, display.window);
