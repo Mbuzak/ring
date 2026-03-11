@@ -1,6 +1,7 @@
 #include "display.h"
 #include "renderer.h"
 #include "mesh.h"
+#include "cglm/struct.h"
 
 int main() {
 	int quit = 0;

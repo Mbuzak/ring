@@ -1,2 +1,5 @@
 # CMake
 build/
+
+# Third party libraries
+lib/
